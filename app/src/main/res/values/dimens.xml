@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="task_option_padding">20dp</dimen>
+
+    <!-- For Preference Screen -->
+    <dimen name="preference_title">20sp</dimen>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="color_primary">#FB8C00</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="status_bar">#9A9797</color>
+    <color name="week_cell">#6B6B6B</color>
+    <color name="task_selection">#99CDCDCD</color>
+    <color name="task_list_background">#52EFEEEE</color>
+
+    <color name="month_color">#FB8C00</color>
+    <color name="inputBox">#03a9f4</color>
+    <color name="error">#FAFD3706</color>
+</resources>

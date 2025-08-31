@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Time Format Preference -->
+    <string-array name="time_format_entries">
+        <item name="1">12 Hour</item>
+        <item name="2">24 Hour</item>
+    </string-array>
+
+    <string-array name="time_format_values">
+        <item name="1">12</item>
+        <item name="2">24</item>
+    </string-array>
+
+
+</resources>

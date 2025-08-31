@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="androidx.databinding.ObservableField" />
+        <import type="com.hfad.agendax.vo.WeekCellModel" />
+        <import type="java.util.Calendar" />
+
+        <variable
+            name="model"
+            type="WeekCellModel" />
+
+        <variable
+            name="currentDate"
+            type="Boolean" />
+
+        <variable
+            name="selectedDate"
+            type="ObservableField&lt;Calendar&gt;" />
+
+        <variable
+            name="callback"
+            type="com.hfad.agendax.WeeksAdapter.DateSelected" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/week_cell"
+        android:layout_width="0dp"
+        android:onClick="@{() -> callback.onDateSelected(model.calendar)}"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/week_cell_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/week_cell"
+            android:text="@{model != null ? `` + model.day: ``}"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/week_cell_date"
+            android:layout_width="33sp"
+            android:layout_height="33sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textColor="@color/week_cell"
+            android:textSize="17sp"
+            android:text="@{model != null ? ``+ model.date: ``}"
+            app:currentDate="@{currentDate}"
+            app:dateSelected="@{model.calendar.equals(selectedDate)}"
+            />
+
+    </LinearLayout>
+
+
+</layout>

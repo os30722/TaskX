@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main.xml"
+    app:startDestination="@id/home">
+
+    <include app:graph="@navigation/settings_nav" />
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.hfad.agendax.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_home_to_newTask"
+            app:destination="@id/newTask"
+            />
+        <action
+            android:id="@+id/action_home_to_taskInfo"
+            app:destination="@id/taskInfo" />
+
+        <action
+            android:id="@+id/action_home_to_settings_nav"
+            app:destination="@id/settings_nav"
+            />
+
+    </fragment>
+    <fragment
+        android:id="@+id/newTask"
+        android:name="com.hfad.agendax.ui.newtask.NewTaskFragment"
+        tools:layout="@layout/fragment_new_task"
+        android:label="New Task" >
+
+        <argument
+            android:name="calendar"
+            app:argType="long"
+            />
+
+        <argument
+            android:name="task"
+            app:argType="com.hfad.agendax.vo.Task"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskInfo"
+        android:name="com.hfad.agendax.ui.taskinfo.TaskInfoFragment"
+        android:label="Task Info"
+        tools:layout="@layout/fragment_task_info" >
+
+        <argument
+            android:name="taskId"
+            app:argType="integer"
+            app:nullable="false"
+            />
+        <action
+            android:id="@+id/action_taskInfo_to_newTask"
+            app:destination="@id/newTask" />
+    </fragment>
+
+
+</navigation>

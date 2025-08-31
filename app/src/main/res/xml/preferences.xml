@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:iconSpaceReserved="false"
+
+    >
+
+    <PreferenceCategory
+        app:allowDividerBelow="false"
+        android:title="General">
+
+        <ListPreference
+            android:key="time_format"
+            android:title="Time Format"
+            app:entries="@array/time_format_entries"
+            app:entryValues="@array/time_format_values"
+            app:useSimpleSummaryProvider="true"
+            android:defaultValue="12"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Voice">
+
+        <CheckBoxPreference
+            android:key="voice_enabled"
+            android:title="Voice Enabled"
+            android:summary="Use default on device text to speech system"
+            android:defaultValue="true"
+        />
+
+        <SeekBarPreference
+            android:key="speech_rate"
+            app:dependency="voice_enabled"
+            android:title="Speech Rate"
+            android:max="10"
+            app:min="1"
+            android:defaultValue="8"
+            app:showSeekBarValue="true"
+            app:summary="Set the speed at which task is spoken"
+            />
+
+        <PreferenceCategory
+            android:title="About"
+            >
+            <Preference
+                android:key="feedback_preference"
+                android:title="Send Feedback"
+                android:persistent="false"
+                />
+
+            <Preference
+                android:key="version_preference"
+                android:persistent="false"
+                android:title="@string/app_name"
+                app:summary="version 2.0.0"
+                />
+
+        </PreferenceCategory>
+
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>

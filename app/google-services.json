@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "193032688688",
+    "project_id": "taskx-c0af0",
+    "storage_bucket": "taskx-c0af0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193032688688:android:436e4c50ec649afaf7c9f5",
+        "android_client_info": {
+          "package_name": "com.hfad.agendax.ui.home"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193032688688-tafbdo46lmvlgb75cg0i1lh7eulsu6fi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkEK6_cBcZBiVnJiLqEXKQxnGkJHbRibo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193032688688-tafbdo46lmvlgb75cg0i1lh7eulsu6fi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

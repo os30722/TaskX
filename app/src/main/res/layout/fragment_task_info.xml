@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.hfad.agendax.ui.taskinfo.TaskInfoViewModel"
+            />
+
+        <variable
+            name="model"
+            type="com.hfad.agendax.vo.Task" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/adView"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="17dp"
+                    android:paddingBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/task_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{model.title}"
+                        android:background="@drawable/rounded_corner"
+                        android:textSize="20sp"
+                        android:padding="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/date_setting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/task_option_padding"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintTop_toBottomOf="@id/task_title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        >
+
+                        <TextView
+                            android:id="@+id/date_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Date"
+                            android:layout_weight="2"
+                            style="@style/Label"
+                            />
+
+                        <TextView
+                            android:id="@+id/date_input"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:datePick="@{model.calendar}"
+                            android:gravity="end"
+                            android:textSize="17sp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/time_setting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:clickable="true"
+                        android:paddingVertical="@dimen/task_option_padding"
+                        android:focusable="true"
+                        app:layout_constraintTop_toBottomOf="@id/date_setting"
+                        app:layout_constraintStart_toStartOf="parent"
+                        >
+
+                        <TextView
+                            android:id="@+id/time_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Time"
+                            android:layout_weight="2"
+                            style="@style/Label"
+                            />
+
+                        <TextView
+                            android:id="@+id/time_input"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:timePick="@{model.calendar}"
+                            app:set24Hour="@{viewModel.timeFormat24}"
+                            android:gravity="end"
+                            android:textSize="17sp"
+                            />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/notification_setting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="@dimen/task_option_padding"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/time_setting"
+                        app:layout_constraintStart_toStartOf="parent"
+                        >
+
+                        <TextView
+                            android:id="@+id/notification_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Notification"
+                            android:layout_weight="2"
+                            style="@style/Label"
+                            />
+
+                        <TextView
+                            android:id="@+id/notification_enable"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{model.notification == true? `ON` : `OFF`}"
+                            android:textSize="17sp"
+                            android:gravity="end"
+                            />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/task_detail_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Details:"
+                        android:visibility="@{model.details.length() == 0 ? View.INVISIBLE : View.VISIBLE}"
+                        style="@style/Label"
+                        android:paddingTop="@dimen/task_option_padding"
+                        android:paddingBottom="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/notification_setting" />
+
+                    <TextView
+                        android:id="@+id/task_detail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="@{model.details}"
+                        android:textSize="18sp"
+                        android:lineSpacingExtra="7dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/task_detail_label"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-6217843088591566/7570730658"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

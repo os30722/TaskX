@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="120dp"
+    android:minHeight="120dp"
+    android:targetCellWidth="2"
+    android:targetCellHeight="2"
+    android:maxResizeWidth="250dp"
+    android:maxResizeHeight="120dp"
+    android:updatePeriodMillis="86400"
+    android:description="@string/task_list_widget"
+    android:previewLayout="@layout/task_list_widget"
+    android:initialLayout="@layout/task_list_widget"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    android:previewImage="@drawable/task_list_widget"
+    android:widgetFeatures="reconfigurable|configuration_optional">
+</appwidget-provider>
